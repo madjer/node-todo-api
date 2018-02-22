@@ -1,6 +1,6 @@
-const MongoClinet = require('mongodb').MongoClient;
+const {MongoClient} = require('mongodb');
 
-MongoClinet.connect('mongodb://localhost:27017/TodoApp', (err, client) =>{
+MongoClient.connect('mongodb://localhost:27017/TodoApp', (err, client) =>{
     if(err) {
         return console.log('Unable to connect to MongoDB server');
     } 
@@ -24,7 +24,7 @@ MongoClinet.connect('mongodb://localhost:27017/TodoApp', (err, client) =>{
         if (err) {
             return console.log('Unable to insert user', err);
         }
-        console.log(JSON.stringify(result.ops, undefined, 2));    
+        console.log(JSON.stringify(result.ops[0]._id.getTimestamp(), undefined, 2));    
     })
     client.close();
 });
