@@ -11,8 +11,7 @@ beforeEach(populateTodos);
 beforeEach(populateUsers);
 describe('POST /todos', () => {
     it('should create a new todo', (done) => {
-        let text = 'Test todo Text';
-        
+        let text = 'Test todo Text';        
         request(app)
             .post('/todos')
             .send({text})
